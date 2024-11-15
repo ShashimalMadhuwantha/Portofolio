@@ -3,35 +3,43 @@ import './AboutMe.css'; // Ensure the CSS file is imported for styling
 
 const AboutMe = () => {
   const aboutRef = useRef(null);
+  const educationRef = useRef(null);
 
   useEffect(() => {
-    const currentRef = aboutRef.current;
+    const currentAboutRef = aboutRef.current;
+    const currentEducationRef = educationRef.current;
 
     const observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Add animation class when the section is in view
             entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target); // Stop observing after animation triggers
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the section is in view
+        threshold: 0.5,
       }
     );
 
-    if (currentRef) {
-      observer.observe(currentRef); // Start observing the section
+    if (currentAboutRef) {
+      observer.observe(currentAboutRef);
+    }
+
+    if (currentEducationRef) {
+      observer.observe(currentEducationRef);
     }
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef); // Cleanup observer safely
+      if (currentAboutRef) {
+        observer.unobserve(currentAboutRef);
+      }
+      if (currentEducationRef) {
+        observer.unobserve(currentEducationRef);
       }
     };
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, []);
 
   return (
     <section id="about" ref={aboutRef} className="about-container">
@@ -56,11 +64,10 @@ const AboutMe = () => {
       </div>
 
       {/* Education Section */}
-      <div className="education">
+      <div className="education" ref={educationRef}>
         <h3 className="education-heading">EDUCATION</h3>
-        <ul>
+        <ul className="education-details">
           <li><strong>Diploma in Software Engineering</strong> National Institute of Business Management (2023 - 2024)</li>
-          
           <li><strong>Higher Diploma in Software Engineering</strong> National Institute of Business Management (2024 - Present)</li>
         </ul>
       </div>

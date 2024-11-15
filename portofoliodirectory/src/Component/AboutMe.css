@@ -56,18 +56,19 @@ body {
 }
 
 .about-details li, .education-details li {
-    margin: 1rem 0; /* Increased gap */
+    margin: 1.5rem 0; /* Increased gap between list items */
     color: #ccc;
     opacity: 0; /* Initially hidden */
-    animation: fadeIn 2s ease-out forwards 2s;
+    animation: fadeIn 2s ease-out forwards;
 }
 
-.about-summary, .education-summary {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-top: 1rem;
-    opacity: 0; /* Initially hidden */
-    animation: fadeIn 2s ease-out forwards 2.5s;
+/* Add a delay for each education list item to stagger the animations */
+.education-details li:nth-child(1) {
+    animation-delay: 2s;
+}
+
+.education-details li:nth-child(2) {
+    animation-delay: 2.5s;
 }
 
 /* Education Section */
@@ -80,7 +81,7 @@ body {
     margin-top: 2rem;
     color: #fff;
     opacity: 0; /* Initially hidden */
-    animation: fadeIn 2s ease-out forwards 3s;
+    animation: fadeIn 2s ease-out forwards 2s;
 }
 
 .education-details ul {
@@ -89,10 +90,10 @@ body {
 }
 
 .education-details li {
-    margin: 1rem 0; /* Same gap as about-details */
+    margin: 1.5rem 0; /* Same gap as about-details */
     color: #ccc;
     opacity: 0; /* Initially hidden */
-    animation: fadeIn 2s ease-out forwards 3.5s;
+    animation: fadeIn 2s ease-out forwards 3s;
 }
 
 .download-cv {

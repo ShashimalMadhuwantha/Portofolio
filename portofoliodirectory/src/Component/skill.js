@@ -5,6 +5,19 @@ const Skills = () => {
   const skillsRef = useRef(null);
   const skillCardsRef = useRef([]);
 
+  // Define the skill levels with PHP and Java being higher
+  const skillLevels = [
+    80, // HTML
+    85, // CSS
+    90, // JavaScript
+    95, // PHP (higher)
+    95, // C# (higher)
+    92, // Java (higher)
+    80, // MySQL
+    88, // React.js
+    85, // Node.js
+  ];
+
   useEffect(() => {
     const skillsElement = skillsRef.current;
     const skillCards = skillCardsRef.current;
@@ -71,10 +84,10 @@ const Skills = () => {
                   cy="60"
                   r="50"
                   strokeDasharray="314.1592654"
-                  strokeDashoffset={(314.1592654 * (index + 1)) / 10} // Dynamic calculation based on skill index
+                  strokeDashoffset={(314.1592654 * (100 - skillLevels[index])) / 100} // Updated calculation based on skillLevels array
                 />
               </svg>
-              <div className="skill-level">{(index + 1) * 10}%</div>
+              <div className="skill-level">{skillLevels[index]}%</div>
             </div>
           </div>
         ))}

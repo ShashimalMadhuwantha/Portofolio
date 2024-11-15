@@ -4,6 +4,7 @@ import profileImage from './Landingimg.jpg'; // Profile image
 
 const Home = () => {
   return (
+    
     <div className="home-container">
       <div className="home-left">
         {/* Developer's Design Section */}

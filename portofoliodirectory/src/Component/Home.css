@@ -9,6 +9,23 @@
     font-family: 'Arial', sans-serif;
     padding: 0 5%;
   }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0; /* Ensure no margin on body */
+    padding: 0; /* Ensure no padding on body */
+  }
+  
+  /* Ensure no space between the home and about sections */
+  section {
+    margin: 0;
+    padding: 0;
+  }
   
   /* Left side - Introduction text */
   .home-left {
@@ -191,5 +208,7 @@
     100% {
       opacity: 1;
     }
+
+    
   }
   

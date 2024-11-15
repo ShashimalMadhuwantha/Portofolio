@@ -1,25 +1,28 @@
-/* Main Animated Background */
-.animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a, #000, #333, #000);
-  background-size: 300% 300%;
-  animation: gradientMove 6s ease-in-out infinite;
-  z-index: -1;
-  opacity: 0.85;
+/* App.css */
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+body {
+  background-color: #000; /* Black background for the entire body */
+  color: #fff; /* White text color for readability */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* Set a default font */
+}
+
+section {
+  padding: 50px;
+  margin: 20px 0;
+  background-color: #333; /* Dark gray background for each section */
+  height: 100vh; /* Optional: ensures each section takes up the full viewport height */
+}
+
+/* Add any other specific styling to improve readability */
+h1, h2, h3 {
+  color: #fff; /* Ensure headings are visible on dark background */
+}
+
+p {
+  color: #ccc; /* Slightly lighter text for paragraphs */
 }

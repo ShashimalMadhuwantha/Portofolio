@@ -1,88 +1,62 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (id) => {
+    if (id === 'home') {
+      // Scroll to the top of the page for 'home' link
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Scroll to other sections on the page
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <NavContainer>
-      <BrandName>Shashimal Madhuwantha</BrandName>
-      <NavCenter>
-        <NavItems>
-          <NavItem href="#home">Home</NavItem>
-          <NavItem href="#skills">Skills</NavItem>
-          <NavItem href="#projects">Projects</NavItem>
-          <NavItem href="#contact">Contact</NavItem>
-        </NavItems>
-      </NavCenter>
-    </NavContainer>
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="brand-name">Shashimal Madhuwantha</div>
+      <div className="nav-center">
+        <nav className="nav">
+          <ul className="nav-items">
+            {/* 'Home' section scrolls to the top of the page */}
+            <li>
+              <a href="#home" onClick={() => scrollToSection('home')} className="nav-item">Home</a>
+            </li>
+            <li>
+              <a href="#about" onClick={() => scrollToSection('about')} className="nav-item">About Me</a>
+            </li>
+            <li>
+              <a href="#skill" onClick={() => scrollToSection('skills')} className="nav-item">Skills</a>
+            </li>
+            <li>
+              <a href="#projects" onClick={() => scrollToSection('projects')} className="nav-item">Projects</a>
+            </li>
+            <li>
+              <a href="#contact" onClick={() => scrollToSection('contact')} className="nav-item">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
 export default Navbar;
-
-const NavContainer = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background-color: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  position: relative;
-`;
-
-const BrandName = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #fff;
-  z-index: 1;
-`;
-
-const NavCenter = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-
-const NavItems = styled.div`
-  display: flex;
-  gap: 2.5rem;
-`;
-
-const NavItem = styled.a`
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  position: relative;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border-radius: 5px;
-
-  /* Background and text color transition on hover */
-  &:hover {
-    color: #000; /* Change text color to black */
-    background-color: #fff; /* Add white background */
-  }
-
-  /* Enhanced underline animation */
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    transition: width 0.4s ease;
-    opacity: 0;
-  }
-
-  &:hover::after {
-    width: 100%;
-    opacity: 1;
-  }
-`;

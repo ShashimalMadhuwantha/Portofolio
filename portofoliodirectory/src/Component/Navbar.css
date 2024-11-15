@@ -1,0 +1,104 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #000;  /* Fixed black background */
+  color: #fff;
+  font-family: Arial, sans-serif;
+  position: fixed;  /* Make the navbar fixed at the top */
+  top: 0;           /* Align it to the top */
+  left: 0;
+  right: 0;
+  z-index: 1000;    /* Ensure the navbar is on top of other elements */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for visual effect */
+  transition: background-color 0.3s ease; /* Optional: For smooth background change when scrolled */
+}
+
+/* Brand Name */
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  animation: pulseAnimation 2s ease-in-out infinite;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Animation Keyframe for BrandName */
+@keyframes pulseAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Nav Center for aligning in the middle */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Navigation Bar Items */
+.nav-items {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-item:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.4s ease;
+  opacity: 0;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Mobile View - Make Nav Vertical on Small Screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+  .brand-name {
+    font-size: 1.5rem;
+  }
+  .nav-items {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-item {
+    padding: 10px 20px;
+  }
+}

@@ -1,0 +1,269 @@
+/* Basic styling for the whole home container */
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  padding: 0 5%;
+}
+
+/* Ensure no space between the home and about sections */
+section {
+  margin: 0;
+  padding: 0;
+}
+
+/* Left side - Introduction text */
+.home-left {
+  flex: 1;
+  padding-right: 2rem;
+  text-align: left;
+}
+
+/* Developer's Design Section */
+.developer-design {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tech-design {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4e7dff, #99c2ff);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.code-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.code-line {
+  height: 3px;
+  width: 50px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+.circle {
+  position: absolute;
+  top: 120px;
+  left: 70px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: pulse 2s ease-out infinite;
+}
+
+.circuit {
+  position: absolute;
+  top: 100px;
+  left: 130px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  animation: rotate 4s linear infinite;
+}
+
+/* Animation for floating code lines */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animation for the pulsing circle */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation for rotating circuit */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Intro Text */
+.intro-text {
+  animation: fadeInLeft 2s ease-out;
+}
+
+.intro-heading {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideInLeft 2.5s ease-out;
+}
+
+.intro-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  max-width: 600px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Right side - Profile image */
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Profile image adjustments */
+.profile-image {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image:hover {
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Adjust container to stack vertically and center-align */
+  .home-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    height: auto;
+  }
+
+  /* Left section adjustments */
+  .home-left {
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .intro-heading {
+    font-size: 2rem;
+  }
+
+  .intro-description {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  /* Developer design adjustments */
+  .developer-design {
+    order: 2;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-design {
+    width: 150px;
+    height: 150px;
+  }
+
+  .code-box {
+    padding: 5px;
+    width: 40px;
+    height: 30px;
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .circuit {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Profile Image adjustments */
+  .home-right {
+    order: 3;
+    margin-bottom: 1rem;
+  }
+
+  .profile-image {
+    width: 300px;
+    height: 300px;
+  }
+}

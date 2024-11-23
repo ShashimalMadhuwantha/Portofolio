@@ -1,0 +1,152 @@
+/* Basic styling for the skills container */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.8); /* Slightly scaled down */
+  transition: all 0.3s ease-out; /* Smooth transition for scaling and opacity */
+}
+
+.skills-container.pop-up {
+  opacity: 1;
+  transform: scale(1); /* Normal scale after animation */
+}
+
+/* Header for skills */
+.skills-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Grid layout for skill cards */
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on all screen sizes */
+  gap: 1rem; /* Gap between cards */
+  width: 100%;
+  animation: loadCards 1s ease-out;
+}
+
+.skill-card {
+  background-color: #070707; /* Dark background for the card */
+  color: #fbfafa; /* Light text for the content */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly shifted down initially */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  font-size: 0.8rem; /* Smaller font size for content */
+}
+
+/* Hover effect */
+.skill-card:hover {
+  background-color: #333; /* Slightly lighter background when hovered */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: translateY(-5px); /* Slightly lift the card */
+}
+
+.skill-card.pop-up {
+  opacity: 1;
+  transform: translateY(0); /* Bring card into place */
+}
+
+/* Skill name inside the card */
+.skill-card h3 {
+  font-size: 1rem; /* Adjust font size for mobile view */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Circular skill progress bar */
+.skill-bar {
+  position: relative;
+  width: 80px; /* Smaller size for mobile */
+  height: 80px;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
+
+.circular-bar {
+  transform: rotate(-90deg);
+}
+
+.circle-background {
+  stroke: #f9f5f5;
+  stroke-width: 8;
+  fill: none;
+}
+
+.circle-progress {
+  transform: rotate(-90deg);
+  stroke: #f9f3f3; /* Light color for the progress bar */
+  stroke-width: 8;
+  fill: none;
+  stroke-linecap: round;
+}
+
+.skill-level {
+  font-size: 0.8rem; /* Smaller text for mobile */
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loadCards {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ensure 4 cards in a row on all screens */
+@media (max-width: 768px) {
+  .skills-cards {
+    grid-template-columns: repeat(4, 1fr); /* Keep 4 columns on smaller screens */
+    gap: 0.8rem; /* Adjust the gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-cards {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on mobile */
+    gap: 0.5rem; /* Minimal gap for mobile */
+  }
+
+  .skill-card {
+    padding: 0.5rem; /* Smaller padding */
+    font-size: 0.7rem; /* Smaller font size for mobile */
+  }
+
+  .skill-bar {
+    width: 60px; /* Reduce progress bar size for mobile */
+    height: 60px;
+  }
+}

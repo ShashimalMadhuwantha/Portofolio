@@ -1,0 +1,243 @@
+/* Basic styling for the whole contact container */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  padding: 0 5%;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Left side - Contact Information (Social Media Links) */
+.contact-left {
+  flex: 1;
+  padding-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-header {
+  margin-bottom: 2rem;
+}
+
+.contact-header h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInLeft 2s ease-out;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Social media icons */
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: center; /* Center the icons horizontally */
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Right side - Contact Form */
+.contact-right {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4e7dff;
+}
+
+.contact-form input[type="submit"] {
+  background-color: #4e7dff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #99c2ff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Animation for animated item */
+.animated-item {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  font-size: 3rem;
+  color: #4e7dff;
+  animation: slideInLeft 2s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack the left and right sections vertically */
+    padding: 0 2%;
+    height: auto; /* Allow the height to be adjusted */
+  }
+
+  .contact-left,
+  .contact-right {
+    flex: 1;
+    padding: 0;
+  }
+
+  .contact-header h2 {
+    font-size: 2.5rem; /* Reduce font size */
+    letter-spacing: 1.5px;
+  }
+
+  .contact-header p {
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .social-icons {
+    gap: 1rem;
+  }
+
+  .social-icons a {
+    font-size: 1.5rem; /* Adjust icon size */
+  }
+
+  .contact-form h3 {
+    font-size: 1.5rem; /* Adjust heading font size */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem; /* Adjust input font size */
+  }
+
+  .contact-form input[type="submit"] {
+    font-size: 1rem; /* Adjust button font size */
+  }
+
+  .animated-item {
+    font-size: 2rem; /* Adjust the icon size */
+  }
+}
+
+/* Smaller mobile responsiveness */
+@media screen and (max-width: 480px) {
+  .contact-header h2 {
+    font-size: 2rem; /* Further reduce font size */
+  }
+
+  .contact-header p {
+    font-size: 0.9rem; /* Further adjust text */
+  }
+
+  .social-icons {
+    gap: 0.8rem;
+  }
+
+  .social-icons a {
+    font-size: 1.2rem; /* Adjust icon size */
+  }
+
+  .contact-form h3 {
+    font-size: 1.2rem; /* Adjust heading font size */
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.85rem; /* Adjust input font size */
+  }
+
+  .contact-form input[type="submit"] {
+    font-size: 1rem; /* Adjust button font size */
+  }
+
+  .animated-item {
+    font-size: 1.5rem; /* Adjust the icon size */
+  }
+}

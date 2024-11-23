@@ -1,0 +1,150 @@
+/* Reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;  /* Reset margin for the body */
+    padding: 0; /* Reset padding for the body */
+}
+
+.about-container, .education-container {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #fff;
+    background-color: #000;
+    transition: background-color 0.3s ease;
+    opacity: 0; /* Initially hidden */
+}
+
+.about-container.fade-in, .education-container.fade-in {
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.about-heading, .education-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-out forwards 0.5s;
+}
+
+.about-content, .education-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-out forwards 1s;
+}
+
+.about-details, .education-details {
+    margin-bottom: 2rem;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-out forwards 1.5s;
+}
+
+.about-details ul, .education-details ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.about-details li, .education-details li {
+    margin: 1.5rem 0; /* Increased gap between list items */
+    color: #ccc;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* Add a delay for each education list item to stagger the animations */
+.education-details li:nth-child(1) {
+    animation-delay: 2s;
+}
+
+.education-details li:nth-child(2) {
+    animation-delay: 2.5s;
+}
+
+/* Education Section */
+.education-container {
+    margin-top: 3rem; /* Space between about me and education sections */
+}
+
+.education-heading {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: #fff;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-out forwards 2s;
+}
+
+.education-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.education-details li {
+    margin: 1.5rem 0; /* Same gap as about-details */
+    color: #ccc;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-out forwards 3s;
+}
+
+.download-cv {
+    margin-top: 2rem;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+    cursor: pointer;
+}
+
+/* Keyframes for fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        color: rgba(255, 255, 0, 0.2); /* Yellow text during animation */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        color: #ccc; /* Reverts to the default text color after animation */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-heading, .education-heading {
+        font-size: 2rem;
+    }
+
+    .about-content, .education-content {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .education-heading {
+        font-size: 1.5rem;
+    }
+}

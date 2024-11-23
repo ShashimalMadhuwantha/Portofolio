@@ -1,0 +1,28 @@
+/* App.css */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000; /* Black background for the entire body */
+  color: #fff; /* White text color for readability */
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* Set a default font */
+}
+
+section {
+  padding: 50px;
+  margin: 20px 0;
+  background-color: #333; /* Dark gray background for each section */
+  height: 100vh; /* Optional: ensures each section takes up the full viewport height */
+}
+
+/* Add any other specific styling to improve readability */
+h1, h2, h3 {
+  color: #fff; /* Ensure headings are visible on dark background */
+}
+
+p {
+  color: #ccc; /* Slightly lighter text for paragraphs */
+}

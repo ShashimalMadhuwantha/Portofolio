@@ -1,0 +1,199 @@
+/* Basic styling for the project container */
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Ensure vertical centering */
+  padding: 3rem 2rem;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  opacity: 0; /* Initially hidden */
+  transform: scale(0.8); /* Slightly scaled down */
+  transition: all 0.3s ease-out; /* Smooth transition for scaling and opacity */
+  height: 100vh; /* Take full viewport height */
+  text-align: center; /* Center text inside the container */
+}
+
+.project-container.pop-up {
+  opacity: 1;
+  transform: scale(1); /* Normal scale after animation */
+}
+
+/* Header for projects */
+.project-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Grid layout for project cards */
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in desktop view */
+  gap: 2rem;
+  width: 100%;
+  animation: loadCards 1s ease-out;
+  justify-content: center; /* Horizontally center the cards */
+  align-items: center; /* Vertically center the cards */
+}
+
+/* Responsiveness for tablet view (2 cards) */
+@media (max-width: 1024px) {
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards in tablet view */
+  }
+}
+
+/* Responsiveness for mobile view (1 card) */
+@media (max-width: 768px) {
+  .project-cards {
+    grid-template-columns: 1fr; /* 1 card in mobile view */
+  }
+}
+
+/* Project card styling */
+.project-card {
+  background-color: #fff; /* Dark background for the card */
+  color: #000; /* Set text color to black */
+  padding: 0; /* Remove padding for better image placement */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly shifted down initially */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  background-color: #333; /* Slightly lighter background when hovered */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: translateY(-5px); /* Slightly lift the card */
+}
+
+.project-card.pop-up {
+  opacity: 1;
+  transform: translateY(0); /* Bring card into place */
+}
+
+/* Image banner at the top of the project card */
+.project-card img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for the banner */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 10px 10px 0 0; /* Rounded corners on top */
+}
+
+/* Project title inside the card */
+.project-card h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  color: #000; /* Ensures the title is also black */
+}
+
+/* Project description inside the card */
+.project-card p {
+  padding: 0 1rem 1rem; /* Add padding to the description */
+  color: #000; /* Set description text to black */
+  font-size: 1rem;
+}
+
+/* Style for the view more section */
+.view-more {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.view-more-link {
+  display: inline-block;
+  font-size: 1rem;
+  color: #007BFF;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.view-more-link:hover {
+  background-color: #007BFF;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Styling for the icons */
+.view-more-link svg {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Basic styles for pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination .active {
+  background-color: #0056b3;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* For desktop */
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-cards {
+    grid-template-columns: 1fr; /* For mobile */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadCards {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
